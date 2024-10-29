@@ -6,5 +6,6 @@ CREATE TABLE pokemon (
      pokedex_number INT NOT NULL,
      name VARCHAR(255) NOT NULL,
      type1 VARCHAR(255),
-     type2 VARCHAR(255)
+     type2 VARCHAR(255),
+     gif_url VARCHAR(255)
 );

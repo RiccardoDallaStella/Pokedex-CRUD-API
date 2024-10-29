@@ -50,7 +50,7 @@ public class DB {
         return result;
     }
 
-    public boolean insert(String table, int id, String name, String type1, String type2) {
+    public boolean insert(String table, int id, String name, String type1, String type2, String gif) {
 
         try{
             if(!conn.isValid(5))
@@ -61,13 +61,14 @@ public class DB {
             return false;
         }
 
-        String query = "INSERT INTO " + table + " (pokedex_number, name, type1, type2) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO " + table + " (pokedex_number, name, type1, type2, gif_url) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, id);
             stmt.setString(2, name);
             stmt.setString(3, type1);
             stmt.setString(4, type2);
+            stmt.setString(5, gif);
             stmt.executeUpdate();
         }
         catch (SQLException e) {
